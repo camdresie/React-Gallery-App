@@ -1,8 +1,16 @@
+// Importing Dependencies - withRouter passes the query back up to App.js for use in the performSearch() method.
+
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
 
 class SearchForm extends Component {
+
+/*************** 
+* These methods on the SearchForm class handle all search functionality. Teh onSearchChange() method sets the 
+* state's searchText property to be whatever was entered in the search field. The handleSubmit method sets the 
+* url to be the relevant query and sends the path back up to App.js via withRouter. 
+****************/
 
     state = {
         searchText: ''
@@ -20,6 +28,10 @@ class SearchForm extends Component {
         this.props.history.push(path);
         e.currentTarget.reset();
       }
+      
+/*************** 
+* The render and return methods set the DOM elements to render the search UI. 
+****************/
 
     render() {
         return(
@@ -28,7 +40,6 @@ class SearchForm extends Component {
                     type="search" 
                     onChange={this.onSearchChange}
                     name="search" 
-                    ref={ (input) => this.query = input}
                     placeholder="Search for images" 
                     required />
                 <button type="submit" className="search-button">

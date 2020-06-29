@@ -1,4 +1,10 @@
+//  Dependency import
+
 import React from 'react';
+
+/*************** 
+* If a user's search returns no results, the following will be rendered on the page.
+****************/
 
 const NotFound = () => {
     return(
