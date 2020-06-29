@@ -17,9 +17,9 @@ class App extends Component {
     super();
     this.state = {
       photos: [],
-      rainbowPhotos: [],
+      rainbowsPhotos: [],
       dogsPhotos: [],
-      waterfallPhotos: [],
+      waterfallsPhotos: [],
       loading: true
     };
   }
