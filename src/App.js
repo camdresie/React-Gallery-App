@@ -20,7 +20,6 @@ class App extends Component {
       rainbowsPhotos: [],
       dogsPhotos: [],
       waterfallsPhotos: [],
-      loading: true
     };
   }
 
@@ -30,7 +29,6 @@ class App extends Component {
       .then(response => {
         this.setState({
           rainbowsPhotos: response.data.photos.photo,
-          loading: false
         });
       })
       .catch(error => {
@@ -41,7 +39,6 @@ class App extends Component {
       .then(response => {
         this.setState({
           dogsPhotos: response.data.photos.photo,
-          loading: false
         });
       })
       .catch(error => {
@@ -52,17 +49,10 @@ class App extends Component {
       .then(response => {
         this.setState({
           waterfallsPhotos: response.data.photos.photo,
-          loading: false
         });
       })
       .catch(error => {
         console.log('Error fetching and parsing data', error);
-      });
-    }
-
-    resetLoading = () => {
-      this.setState({
-        loading: true
       });
     }
 
@@ -71,7 +61,6 @@ class App extends Component {
       .then(response => {
         this.setState({
           photos: response.data.photos.photo,
-          loading: false
         });
       })
       .catch(error => {
@@ -81,11 +70,10 @@ class App extends Component {
 
   
   render() {
-    console.log(this.state.photos);
     return (
       <BrowserRouter>
         <div className="container">
-          <SearchForm onSearch={this.performSearch} loadingState={this.resetLoading} />
+          <SearchForm onSearch={this.performSearch} />
           <Nav />
           <Switch>
             <Route exact path="/" render={ () => <Redirect to="/rainbows" /> } />
