@@ -39,7 +39,7 @@ class App extends Component {
 
   componentDidMount() {
 
-    axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=rainbow&per_page=24&format=json&nojsoncallback=1`)
+    axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${process.env.apiKey}&tags=rainbow&per_page=24&format=json&nojsoncallback=1`)
       .then(response => {
         this.setState({
           rainbowsPhotos: response.data.photos.photo,
@@ -49,7 +49,7 @@ class App extends Component {
         console.log('Error fetching and parsing data', error);
       });
   
-      axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=dogs&per_page=24&format=json&nojsoncallback=1`)
+      axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${process.env.apiKey}&tags=dogs&per_page=24&format=json&nojsoncallback=1`)
       .then(response => {
         this.setState({
           dogsPhotos: response.data.photos.photo,
@@ -59,7 +59,7 @@ class App extends Component {
         console.log('Error fetching and parsing data', error);
       });
 
-      axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=waterfall&per_page=24&format=json&nojsoncallback=1`)
+      axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${process.env.apiKey}&tags=waterfall&per_page=24&format=json&nojsoncallback=1`)
       .then(response => {
         this.setState({
           waterfallsPhotos: response.data.photos.photo,
@@ -71,7 +71,7 @@ class App extends Component {
     }
 
     performSearch = (query) => {
-      axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
+      axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${process.env.apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
       .then(response => {
         this.setState({
           photos: response.data.photos.photo,
