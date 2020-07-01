@@ -10,7 +10,7 @@ import axios from 'axios';
 import SearchForm from './components/SearchForm';
 import Nav from './components/Nav';
 import PhotoContainer from './components/PhotoContainer';
-import apiKey from './config';
+// import apiKey from './config';
 
 /*************** 
 * The App class is the main class that controls the React Gallery app. State is first declared as having four 
