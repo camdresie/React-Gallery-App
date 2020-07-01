@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+require('dotenv').config();
 import './css/index.css';
 import axios from 'axios';
 
