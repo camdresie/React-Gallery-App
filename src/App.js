@@ -5,14 +5,14 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import './css/index.css';
 import axios from 'axios';
 
-
 // Component Imports
 
 import SearchForm from './components/SearchForm';
 import Nav from './components/Nav';
 import PhotoContainer from './components/PhotoContainer';
 // import apiKey from './config';
-// require('dotenv').config();
+
+
 
 /*************** 
 * The App class is the main class that controls the React Gallery app. State is first declared as having four 
@@ -38,10 +38,9 @@ class App extends Component {
 * API call. There is also a performSearch() method declared that retrieves the data when a user enters a search
 * term.
 ****************/
-
+  
   componentDidMount() {
-
-    axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${process.env.API_KEY}&tags=rainbow&per_page=24&format=json&nojsoncallback=1`)
+    axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${process.env.REACT_APP_API_Key}&tags=rainbow&per_page=24&format=json&nojsoncallback=1`)
       .then(response => {
         this.setState({
           rainbowsPhotos: response.data.photos.photo,
@@ -51,7 +50,7 @@ class App extends Component {
         console.log('Error fetching and parsing data', error);
       });
   
-      axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${process.env.API_KEY}&tags=dogs&per_page=24&format=json&nojsoncallback=1`)
+      axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${process.env.REACT_APP_API_Key}&tags=dogs&per_page=24&format=json&nojsoncallback=1`)
       .then(response => {
         this.setState({
           dogsPhotos: response.data.photos.photo,
@@ -61,7 +60,7 @@ class App extends Component {
         console.log('Error fetching and parsing data', error);
       });
 
-      axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${process.env.API_KEY}&tags=waterfall&per_page=24&format=json&nojsoncallback=1`)
+      axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${process.env.REACT_APP_API_Key}&tags=waterfall&per_page=24&format=json&nojsoncallback=1`)
       .then(response => {
         this.setState({
           waterfallsPhotos: response.data.photos.photo,
@@ -73,7 +72,7 @@ class App extends Component {
     }
 
     performSearch = (query) => {
-      axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${process.env.API_KEY}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
+      axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${process.env.REACT_APP_API_Key}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
       .then(response => {
         this.setState({
           photos: response.data.photos.photo,
